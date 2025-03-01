@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Futsal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Ajax Futsal</h1>
+        <nav>
+            <ul>
+                <li><a href="#elenco">Elenco</a></li>
+                <li><a href="#comissao">Comissão Técnica</a></li>
+                <li><a href="#patrocinadores">Patrocinadores</a></li>
+                <li><a href="#base">Categoria de Base</a></li>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#partidas">Próximas Partidas</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="elenco">
+        <h2>Elenco Principal</h2>
+        <div class="jogadores">
+            <div class="jogador" onclick="abrirModal('Pedro Queiroz', 22, 'Ala', 4.5)">
+                <img src="pedrinho.jpg" alt="Pedro Queiroz">
+                <p>Pedro Queiroz</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Jardel', 22, 'Ala', 4.5)">
+                <img src="jardel.jpg" alt="Pedro Queiroz">
+                <p>Jardel</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Geraldinho', 22, 'Ala', 4.5)">
+                <img src="geraldinho.jpg" alt="Pedro Queiroz">
+                <p>Geraldinho</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Rivaldo', 22, 'Ala', 4.5)">
+                <img src="rivaldo.jpg" alt="Pedro Queiroz">
+                <p>Rivaldo</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Pedro Germano', 22, 'Ala', 4.5)">
+                <img src="pg.jpg" alt="Pedro Queiroz">
+                <p>Pedro Germano</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Pablo', 22, 'Ala', 4.5)">
+                <img src="pablo.png" alt="Pedro Queiroz">
+                <p>Pablo</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Gustavo', 22, 'Ala', 4.5)">
+                <img src="gustavo.png" alt="Pedro Queiroz">
+                <p>Gustavo</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Sérgio', 22, 'Ala', 4.5)">
+                <img src="sergio.jpg" alt="Pedro Queiroz">
+                <p>Sérgio</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('guilherme', 22, 'Ala', 4.5)">
+                <img src="guilherme.png" alt="Pedro Queiroz">
+                <p>Guilherme</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
+                <img src="nalderson.png" alt="Pedro Queiroz">
+                <p>Nalderson</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
+                <img src="matheus.jpg" alt="Pedro Queiroz">
+                <p>Matheus</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
+                <img src="matheus.jpg" alt="Pedro Queiroz">
+                <p>Zé Erick</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
+                <img src="matheus.jpg" alt="Pedro Queiroz">
+                <p>Lê Júnior</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
+                <img src="matheus.jpg" alt="Pedro Queiroz">
+                <p>Aluízio</p>
+            </div>
+            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
+                <img src="matheus.jpg" alt="Pedro Queiroz">
+                <p>Davi</p>
+            </div>
+
+
+        </div>
+    </section>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h2 id="nomeAtleta"></h2>
+            <p><strong>Idade:</strong> <span id="idadeAtleta"></span></p>
+            <p><strong>Posição:</strong> <span id="posicaoAtleta"></span></p>
+            <p><strong>Estrelas:</strong> <span id="estrelasAtleta"></span></p>
+        </div>
+    </div>
+
+    <section id="comissao">
+        <h2>Comissão Técnica</h2>
+        <p>Treinador: Wiliano Costa</p>
+    </section>
+    
+    <section id="patrocinadores">
+        <h2>Patrocinadores</h2>
+    </section>
+    
+    <section id="base">
+        <h2>Categoria de Base</h2>
+    </section>
+    
+    <section id="historia">
+        <h2>História do Time</h2>
+    </section>
+    
+    <section id="partidas">
+        <h2>Próximas Partidas</h2>
+    </section>
+    
+    <section id="galeria">
+        <h2>Galeria de Fotos</h2>
+    </section>
+</body>
+</html>
