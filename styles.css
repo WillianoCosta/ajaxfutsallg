@@ -157,3 +157,9 @@ h2 {
         width: 80%;
     }
 }
+header img {
+    width: 80px; /* Ajuste o tamanho conforme necessário */
+    height: 80px; /* Mantém a proporção */
+    border-radius: 50%; /* Torna a imagem circular */
+    object-fit: cover; /* Garante que a imagem se encaixe corretamente no círculo */
+}
