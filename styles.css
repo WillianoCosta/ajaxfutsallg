@@ -17,7 +17,7 @@ header {
 /* Estilização da barra de navegação */
 nav {
     background-color: #d70000;
-    padding: 10px;
+    padding: 0px;
     text-align: center;
     position: relative;
 }
@@ -28,7 +28,7 @@ nav {
     color: white;
     cursor: pointer;
     text-align: right;
-    padding: 10px;
+    padding: 0px;
 }
 
 nav ul {
@@ -83,7 +83,7 @@ nav ul li a {
 }
 /* Seções */
 section {
-    padding: 40px;
+    padding: 20px;
     text-align: center;
 }
 
