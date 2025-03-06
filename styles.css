@@ -1,3 +1,5 @@
+/* Estilos gerais */
+
 /* Cabeçalho */
 
 nav ul {
@@ -92,6 +94,11 @@ header {
     color: white;
     padding: 10px 0;
     text-align: center;
+}
+header img{
+    border-radius: 50px;
+    width: 80px;
+    height: 80px;
 }
 nav {
     display: flex;
