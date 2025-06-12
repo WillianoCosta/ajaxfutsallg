@@ -4,127 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajax Futsal</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body>
     <header>
-        <h1>Ajax Futsal</h1>
-        <img src="logo.png" alt="logo">
-        <nav>
-            <ul>
-                <li><a href="#elenco">Elenco</a></li>
-                <li><a href="#comissao">Comissão Técnica</a></li>
-                <li><a href="#patrocinadores">Patrocinadores</a></li>
-                <li><a href="#base">Categoria de Base</a></li>
-                <li><a href="#historia">História</a></li>
-                <li><a href="#partidas">Próximas Partidas</a></li>
-                <li><a href="#galeria">Galeria</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <img src="logo.png" alt="Logo Ajax Futsal" class="logo">
+            <h1>Ajax Futsal</h1>
+            <button class="hamburger" aria-label="Abrir menu de navegação">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="nav-menu">
+    <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#time">Nosso Time</a></li>
+        <li><a href="#momentos">Momentos</a></li>
+        <li><a href="#avaliar">Avalie-nos</a></li>
+        <li><a href="#patrocinadores">Patrocinadores</a></li>
+    </ul>
+</nav>
+        </div>
     </header>
-    
-    <section id="elenco">
-        <h2>Elenco Principal</h2>
-        <div class="jogadores">
-            <div class="jogador" onclick="abrirModal('Pedro Queiroz', 22, 'Ala', 4.5)">
-                <img src="pedrinho.jpg" alt="Pedro Queiroz">
-                <p>Pedro Queiroz</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Jardel', 22, 'Ala', 4.5)">
-                <img src="jardel.jpg" alt="Pedro Queiroz">
-                <p>Jardel</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Geraldinho', 22, 'Ala', 4.5)">
-                <img src="geraldinho.jpg" alt="Pedro Queiroz">
-                <p>Geraldinho</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Rivaldo', 22, 'Ala', 4.5)">
-                <img src="rivaldo.jpg" alt="Pedro Queiroz">
-                <p>Rivaldo</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Pedro Germano', 22, 'Ala', 4.5)">
-                <img src="pg.jpg" alt="Pedro Queiroz">
-                <p>Pedro Germano</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Pablo', 22, 'Ala', 4.5)">
-                <img src="pablo.png" alt="Pedro Queiroz">
-                <p>Pablo</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Gustavo', 22, 'Ala', 4.5)">
-                <img src="gustavo.png" alt="Pedro Queiroz">
-                <p>Gustavo</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Sérgio', 22, 'Ala', 4.5)">
-                <img src="sergio.jpg" alt="Pedro Queiroz">
-                <p>Sérgio</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('guilherme', 22, 'Ala', 4.5)">
-                <img src="guilherme.png" alt="Pedro Queiroz">
-                <p>Guilherme</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
-                <img src="nalderson.png" alt="Pedro Queiroz">
-                <p>Nalderson</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
-                <img src="matheus.jpg" alt="Pedro Queiroz">
-                <p>Matheus</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
-                <img src="matheus.jpg" alt="Pedro Queiroz">
-                <p>Zé Erick</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
-                <img src="matheus.jpg" alt="Pedro Queiroz">
-                <p>Lê Júnior</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
-                <img src="matheus.jpg" alt="Pedro Queiroz">
-                <p>Aluízio</p>
-            </div>
-            <div class="jogador" onclick="abrirModal('Nalderson', 22, 'Ala', 4.5)">
-                <img src="matheus.jpg" alt="Pedro Queiroz">
-                <p>Davi</p>
-            </div>
 
-
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h2>Bem-vindos à Casa do Ajax Futsal!</h2>
+            <p>Paixão em Cada Jogada, Vitória em Cada Desafio!</p>
+            <a href="#time" class="btn">Conheça Nossos Guerreiros</a>
         </div>
     </section>
-    
-    <div id="modal" class="modal">
+
+    <section id="time" class="team-section">
+        <div class="container">
+            <h2>Nossos Atletas</h2>
+            <div class="player-grid">
+                </div>
+        </div>
+    </section>
+
+    <div id="player-modal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="fecharModal()">&times;</span>
-            <h2 id="nomeAtleta"></h2>
-            <p><strong>Idade:</strong> <span id="idadeAtleta"></span></p>
-            <p><strong>Posição:</strong> <span id="posicaoAtleta"></span></p>
-            <p><strong>Estrelas:</strong> <span id="estrelasAtleta"></span></p>
+            <span class="close-button">&times;</span>
+            <img id="modal-player-img" src="" alt="Foto do jogador">
+            <h3 id="modal-player-name"></h3>
+            <p id="modal-player-position"></p>
+            <p id="modal-player-number"></p>
         </div>
     </div>
 
-    <section id="comissao">
-        <h2>Comissão Técnica</h2>
-        <p>Treinador: Wiliano Costa</p>
+    <section id="momentos" class="moments-section">
+        <div class="container">
+            <h2>Momentos Inesquecíveis</h2>
+            <p>Confira os bastidores da nossa jornada nas quartas de final do municipal!</p>
+            <div class="video-placeholder">
+    <video controls autoplay muted loop playsinline class="vertical-video">
+        <source src="video.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+</div>
+        </div>
     </section>
-    
-    <section id="patrocinadores">
-        <h2>Patrocinadores</h2>
+
+    <section id="patrocinadores" class="sponsors-section">
+    <div class="container">
+        <h2>Nossos Patrocinadores</h2>
+        <p>Agradecemos imensamente o apoio de quem torna tudo isso possível!</p>
+        <div class="sponsors-grid">
+            <div class="sponsor-item">
+                <a href="URL_DO_PATROCINADOR_1" target="_blank">
+                    <img src="gfarma.png" alt="Logo Patrocinador 1">
+                </a>
+            </div>
+            <div class="sponsor-item">
+                <a href="URL_DO_PATROCINADOR_2" target="_blank">
+                    <img src="santapharma.png" alt="Logo Patrocinador 2">
+                </a>
+            </div>
+            <div class="sponsor-item">
+                <a href="URL_DO_PATROCINADOR_3" target="_blank">
+                    <img src="larissa.png" alt="Logo Patrocinador 3">
+                </a>
+            </div>
+
+            <div class="sponsor-item">
+                <a href="URL_DO_PATROCINADOR_4" target="_blank">
+                    <img src="ladolce.jpeg" alt="Logo Patrocinador 3">
+                </a>
+            </div>
+
+            <div class="sponsor-item">
+                <a href="URL_DO_PATROCINADOR_5" target="_blank">
+                    <img src="bomboniere.jpeg" alt="Logo Patrocinador 3">
+                </a>
+            </div>
+
+            <div class="sponsor-item">
+                <a href="URL_DO_PATROCINADOR_6" target="_blank">
+                    <img src="ozeano.jpeg" alt="Logo Patrocinador 3">
+                </a>
+            </div>
+            </div>
+    </div>
+</section>
+
+    <section id="avaliar" class="rating-section">
+        <div class="container">
+            <h2>Avalie o Ajax Futsal!</h2>
+            <p>Sua opinião é muito importante para nós. Deixe sua avaliação em estrelas!</p>
+            <div class="stars" data-rating="0">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
+            </div>
+            <p class="current-rating">Avaliação: <span id="rating-value">0</span> estrelas</p>
+            <button class="btn" id="submit-rating">Enviar Avaliação</button>
+            <p id="rating-message"></p>
+        </div>
     </section>
-    
-    <section id="base">
-        <h2>Categoria de Base</h2>
-    </section>
-    
-    <section id="historia">
-        <h2>História do Time</h2>
-    </section>
-    
-    <section id="partidas">
-        <h2>Próximas Partidas</h2>
-    </section>
-    
-    <section id="galeria">
-        <h2>Galeria de Fotos</h2>
-    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ajax Futsal. Todos os direitos reservados.</p>
+            <p>Desenvolvido com paixão para os nossos torcedores.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
