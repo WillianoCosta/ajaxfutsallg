@@ -1,0 +1,646 @@
+:root {
+    --primary-color: #A00000; /* Vermelho escuro das fotos */
+    --secondary-color: #000000; /* Preto das fotos */
+    --tertiary-color: #FFFFFF; /* Branco para textos e detalhes */
+    --text-light: #F0F0F0;
+    --text-dark: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    line-height: 1.6;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    height: 60px;
+    margin-right: 15px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Estilos para o menu de navegação padrão (desktop) */
+.nav-menu ul { /* Modificado de 'nav ul' para '.nav-menu ul' */
+    list-style: none;
+    display: flex; /* Para os itens ficarem lado a lado no desktop */
+}
+
+.nav-menu ul li { /* Modificado de 'nav ul li' para '.nav-menu ul li' */
+    margin-left: 20px;
+}
+
+.nav-menu ul li a { /* Modificado de 'nav ul li a' para '.nav-menu ul li a' */
+    color: var(--tertiary-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-menu ul li a:hover { /* Modificado de 'nav ul li a:hover' para '.nav-menu ul li a:hover' */
+    color: #ffd700; /* Um toque de dourado ao passar o mouse */
+}
+
+/* Estilos para o botão Hambúrguer */
+.hamburger {
+    display: none; /* Esconde o hambúrguer por padrão (desktop) */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Garante que fique acima de outros elementos */
+}
+
+.hamburger .bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--tertiary-color);
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Estilos para o Hambúrguer "X" quando ativo */
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fundo_ajax_hero.jpg') no-repeat center center/cover;
+    color: var(--tertiary-color);
+    text-align: center;
+    padding: 100px 0;
+    height: 70vh; /* Altura da seção */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #8c0000;
+    transform: translateY(-3px);
+}
+
+/* Team Section */
+.team-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+.team-section h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: var(--tertiary-color);
+    text-transform: uppercase;
+}
+
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.player-card {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 2px solid var(--primary-color);
+}
+
+.player-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.player-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%); /* Pequeno efeito para harmonizar */
+    transition: filter 0.3s ease;
+}
+
+.player-card:hover img {
+    filter: grayscale(0%);
+}
+
+.player-info {
+    padding: 20px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.player-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--tertiary-color);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 5% auto;
+    padding: 30px;
+    border: 2px solid var(--primary-color);
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+    animation: fadeInModal 0.3s ease-out;
+}
+
+/* Dentro do seu arquivo style.css */
+
+/* ... (seus estilos existentes) ... */
+
+/* Nova Seção de Patrocinadores */
+.sponsors-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #0a0a0a;
+    border-top: 5px solid var(--primary-color);
+}
+
+.sponsors-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--tertiary-color);
+    text-transform: uppercase;
+}
+
+.sponsors-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+.sponsors-grid {
+    display: grid;
+    /* Alterado para 3 colunas em telas maiores para melhor alinhamento com 6 itens */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px; /* Limita a largura da grade para melhor controle */
+    margin: 0 auto; /* Centraliza a grade */
+}
+
+.sponsor-item {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 15px; /* Reduzi o padding um pouco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Usamos flexbox para centralizar a imagem */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 120px; /* Altura fixa para todos os contêineres */
+    /* Remove 'position: relative;' se estava lá, pois não é necessário aqui */
+}
+
+.sponsor-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.sponsor-item a {
+    display: flex; /* Também torna o link um flex container */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-decoration: none; /* Garante que não haja sublinhado */
+}
+
+.sponsor-item img {
+    max-width: 90%; /* Permite que a imagem preencha quase a largura total do contêiner */
+    max-height: 90%; /* Permite que a imagem preencha quase a altura total do contêiner */
+    object-fit: contain; /* ESSENCIAL: Reduz a imagem para caber no contêiner mantendo a proporção */
+    filter: grayscale(80%);
+    transition: filter 0.3s ease;
+    display: block; /* Remove espaços extras se houver */
+}
+
+.sponsor-item img:hover {
+    filter: grayscale(0%);
+}
+
+/* Ajustes de responsividade para a nova seção */
+@media (max-width: 768px) {
+    .sponsors-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .sponsors-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
+        gap: 20px;
+    }
+
+    .sponsor-item {
+        height: 100px;
+        padding: 15px;
+    }
+
+    .sponsor-item img {
+        max-height: 80%; /* Ajusta o tamanho da imagem interna */
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsors-section h2 {
+        font-size: 2rem;
+    }
+
+    .sponsors-grid {
+        grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+        gap: 15px;
+        max-width: 300px; /* Limita para não ficar muito largo em mobile */
+    }
+
+    .sponsor-item {
+        height: 90px;
+        padding: 10px;
+    }
+
+    .sponsor-item img {
+        max-height: 70%;
+    }
+}
+
+@keyframes fadeInModal {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content img {
+    max-width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 4px solid var(--primary-color);
+}
+
+.modal-content h3 {
+    font-size: 2.2rem;
+    color: var(--tertiary-color);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.modal-content p {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.close-button {
+    color: var(--tertiary-color);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Moments Section (Video) */
+.moments-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #0a0a0a;
+}
+
+.moments-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--tertiary-color);
+    text-transform: uppercase;
+}
+
+.moments-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: var(--text-light);
+}
+
+.video-placeholder {
+    width: 100%;
+    max-width: 400px; /* Para simular o vídeo vertical */
+    height: 600px; /* Para simular o vídeo vertical */
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    font-size: 1.1rem;
+    position: relative; /* Para o overlay do vídeo */
+}
+
+.vertical-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Rating Section */
+.rating-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--secondary-color);
+}
+
+.rating-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--tertiary-color);
+    text-transform: uppercase;
+}
+
+.rating-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-light);
+}
+
+.stars {
+    font-size: 3.5rem;
+    color: #ccc;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.stars .star {
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+
+.stars .star.selected,
+.stars .star.hovered {
+    color: #ffd700; /* Cor dourada para estrelas selecionadas */
+    transform: scale(1.1);
+}
+
+.current-rating {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+#rating-message {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #8cff8c; /* Cor de sucesso */
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 5px;
+}
+/* Dentro do seu arquivo style.css */
+
+/* ... (seus estilos existentes) ... */
+
+header .logo {
+    height: 60px; /* Mantém a altura atual */
+    width: 60px; /* Garante que a largura seja igual à altura */
+    border-radius: 50%; /* Torna o elemento completamente redondo */
+    object-fit:cover; /* Garante que a imagem preencha o círculo sem distorcer */
+    margin-right: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Adiciona uma sombra sutil para destacar */
+}
+
+/* ... (o restante dos seus estilos) ... */
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: row; /* Mantém logo e título na mesma linha */
+        justify-content: space-between; /* Espaça-os */
+        align-items: center;
+    }
+
+    header h1 {
+        font-size: 2rem; /* Ajusta o tamanho do título */
+        margin-left: -50px; /* Traz o título um pouco mais para o centro */
+    }
+
+    header .logo {
+        margin-bottom: 0; /* Remove a margem inferior */
+    }
+
+    /* Mostra o hambúrguer e esconde o menu de navegação padrão */
+    .hamburger {
+        display: block; /* Mostra o hambúrguer em telas pequenas */
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Inicia o menu fora da tela */
+        width: 70%; /* Largura do menu lateral */
+        height: 100%;
+        background-color: var(--primary-color); /* Fundo do menu mobile */
+        padding-top: 80px; /* Espaço para o header */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        transition: right 0.4s ease-in-out;
+        z-index: 999; /* Abaixo do hambúrguer */
+        overflow-y: auto; /* Para rolagem se o menu for muito grande */
+    }
+
+    .nav-menu.active {
+        right: 0; /* Desliza o menu para dentro da tela */
+    }
+
+    .nav-menu ul {
+        flex-direction: column; /* Itens do menu em coluna */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+        padding: 20px;
+    }
+
+    .nav-menu ul li {
+        margin: 15px 0; /* Espaçamento entre os itens */
+    }
+
+    .nav-menu ul li a {
+        font-size: 1.3rem; /* Aumenta o tamanho da fonte dos links */
+        display: block; /* Para que o link ocupe toda a largura */
+        padding: 10px 0;
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .team-section h2,
+    .moments-section h2,
+    .rating-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+
+    .modal-content img {
+        max-width: 180px;
+        height: 180px;
+    }
+
+    .modal-content h3 {
+        font-size: 1.8rem;
+    }
+
+    .modal-content p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .team-section h2,
+    .moments-section h2,
+    .rating-section h2 {
+        font-size: 2rem;
+    }
+
+    .stars {
+        font-size: 2.5rem;
+    }
+
+    .modal-content img {
+        max-width: 150px;
+        height: 150px;
+    }
+}
