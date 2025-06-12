@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const players = [
-        { name: 'Erick', fileName: 'erick.jpg', position: 'Goleiro', number: '1' },
+        { name: 'Eduardo', fileName: 'erick.jpg', position: 'Goleiro', number: '1' },
         { name: 'Geraldinho', fileName: 'geraldinho.jpg', position: 'Ala Esquerda', number: '7' },
-        { name: 'Guilherme', fileName: 'guilherme.jpg', position: 'Fixo', number: '4' },
-        { name: 'Gustavo', fileName: 'gustavo.jpg', position: 'Pivô', number: '9' },
+        { name: 'Guilherme', fileName: 'guilherme.png', position: 'Ala Direito', number: '4' },
+        { name: 'Gustavo', fileName: 'gustavo.png', position: 'Ala Direito', number: '9' },
         { name: 'Jardel', fileName: 'jardel.jpg', position: 'Ala Direita', number: '10' },
         { name: 'Matheus', fileName: 'matheus.jpg', position: 'Fixo', number: '5' },
-        { name: 'Nalderson', fileName: 'nalderson.jpg', position: 'Ala Esquerda', number: '11' },
-        { name: 'Pablo', fileName: 'pablo.jpg', position: 'Ala Direita', number: '8' },
-        { name: 'Pedrinho', fileName: 'pedrinho.jpg', position: 'Pivô', number: '6' },
+        { name: 'Nalderson', fileName: 'nalderson.png', position: 'Ala Direito', number: '11' },
+        { name: 'Pedrinho', fileName: 'pedrinho.jpg', position: 'Ala Direito', number: '6' },
+        { name: 'Pedro Germano', fileName: 'pedrinho.jpg', position: 'Ala Esquerdo', number: '3' },
+        { name: 'Laércio Júnior', fileName: 'pedrinho.jpg', position: 'Fixo/Ala', number: '20' },
+        { name: 'Davi', fileName: 'pedrinho.jpg', position: 'Ala Direito', number: '21' },
+        { name: 'Rivaldo', fileName: 'Rivaldo.jpg', position: 'Pivô', number: '22' },
         // Adicione mais jogadores aqui
     ];
 
