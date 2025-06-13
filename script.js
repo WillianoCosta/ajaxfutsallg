@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Dados e elementos do site (permanecem os mesmos) ---
     const players = [
         { name: 'Eduardo', fileName: 'erick.jpg', position: 'Goleiro', number: '2' },
-        { name: 'Geraldinho', fileName: 'pg.jpg', position: 'Ala Esquerda', number: '7' },
-        { name: 'Pedro Germano', fileName: 'geraldinho.jpg', position: 'Ala Esquerda', number: '7' },
-        { name: 'Guilherme', fileName: 'guilherme.pngg', position: 'Ala Direito', number: '4' },
+        { name: 'Pedro Germano', fileName: 'pg.jpg', position: 'Ala Esquerda', number: '7' },
+        { name: 'Geraldinho', fileName: 'geraldinho.jpg', position: 'Ala Esquerda', number: '7' },
+        { name: 'Guilherme', fileName: 'guilherme.png', position: 'Ala Direito', number: '4' },
         { name: 'Gustavo', fileName: 'gustavo.png', position: 'Ala Direito', number: '20' },
         { name: 'Jardel', fileName: 'jardel.jpg', position: 'Ala Direita', number: '10' },
         { name: 'Matheus', fileName: 'matheus.jpg', position: 'Fixo', number: '5' },
