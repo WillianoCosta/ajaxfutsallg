@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Laércio Júnior', fileName: 'matheus.jpg', position: 'Fixo/Ala', number: '17' },
         { name: 'Nalderson', fileName: 'nalderson.png', position: 'Ala Direito', number: '8' },
         { name: 'Pedrinho', fileName: 'pedrinho.jpg', position: 'Ala Direito', number: '9' },
-        { name: 'Davi', fileName: 'Davi.jpg', position: 'Ala Direito', number: '19' },
+        { name: 'Davi', fileName: 'davi.jpg', position: 'Ala Direito', number: '19' },
         { name: 'Rivaldo', fileName: 'Rivaldo.jpg', position: 'Pivô', number: '6' },
         // Adicione mais jogadores aqui
     ];
