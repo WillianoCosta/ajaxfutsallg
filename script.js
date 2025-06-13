@@ -1,17 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // GOOGLE APPS SCRIPT 
+    const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx_tOBpM5AaQzdO0ivJJlMdfHrXV5JhzrBr0iI9nmaWM5oKdJD7b72pYNBzi6JOi8to/exec';
+
+    // --- Dados e elementos do site (permanecem os mesmos) ---
     const players = [
-        { name: 'Eduardo', fileName: 'erick.jpg', position: 'Goleiro', number: '1' },
-        { name: 'Geraldinho', fileName: 'geraldinho.jpg', position: 'Ala Esquerda', number: '7' },
-        { name: 'Guilherme', fileName: 'guilherme.png', position: 'Ala Direito', number: '4' },
-        { name: 'Gustavo', fileName: 'gustavo.png', position: 'Ala Direito', number: '9' },
+        { name: 'Eduardo', fileName: 'erick.jpg', position: 'Goleiro', number: '2' },
+        { name: 'Geraldinho', fileName: 'pg.jpg', position: 'Ala Esquerda', number: '7' },
+        { name: 'Pedro Germano', fileName: 'geraldinho.jpg', position: 'Ala Esquerda', number: '7' },
+        { name: 'Guilherme', fileName: 'guilherme.pngg', position: 'Ala Direito', number: '4' },
+        { name: 'Gustavo', fileName: 'gustavo.png', position: 'Ala Direito', number: '20' },
         { name: 'Jardel', fileName: 'jardel.jpg', position: 'Ala Direita', number: '10' },
         { name: 'Matheus', fileName: 'matheus.jpg', position: 'Fixo', number: '5' },
-        { name: 'Nalderson', fileName: 'nalderson.png', position: 'Ala Direito', number: '11' },
-        { name: 'Pedrinho', fileName: 'pedrinho.jpg', position: 'Ala Direito', number: '6' },
-        { name: 'Pedro Germano', fileName: 'pedrinho.jpg', position: 'Ala Esquerdo', number: '3' },
-        { name: 'Laércio Júnior', fileName: 'pedrinho.jpg', position: 'Fixo/Ala', number: '20' },
-        { name: 'Davi', fileName: 'pedrinho.jpg', position: 'Ala Direito', number: '21' },
-        { name: 'Rivaldo', fileName: 'Rivaldo.jpg', position: 'Pivô', number: '22' },
+        { name: 'Laércio Júnior', fileName: 'matheus.jpg', position: 'Fixo/Ala', number: '17' },
+        { name: 'Nalderson', fileName: 'nalderson.png', position: 'Ala Direito', number: '8' },
+        { name: 'Pedrinho', fileName: 'pedrinho.jpg', position: 'Ala Direito', number: '9' },
+        { name: 'Davi', fileName: 'Davi.jpg', position: 'Ala Direito', number: '19' },
+        { name: 'Rivaldo', fileName: 'Rivaldo.jpg', position: 'Pivô', number: '6' },
         // Adicione mais jogadores aqui
     ];
 
@@ -43,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
             modalPlayerPosition.textContent = `Posição: ${player.position}`;
             modalPlayerNumber.textContent = `Número: ${player.number}`;
             playerModal.style.display = 'block';
-            // Fechar menu mobile se estiver aberto ao abrir modal
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
@@ -66,20 +69,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lógica do menu hambúrguer
     hamburger.addEventListener('click', () => {
         navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active'); // Para animar o hambúrguer para 'X'
+        hamburger.classList.toggle('active');
     });
 
     // Fechar o menu mobile ao clicar em um link
-    document.querySelectorAll('.nav-menu ul li a').forEach(link => { // Modificado de 'nav ul li a'
+    document.querySelectorAll('.nav-menu ul li a').forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
 
-            // Rola para a seção
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
 
-            // Fecha o menu mobile após clicar em um link
             if (navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
@@ -87,12 +88,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Sistema de avaliação por estrelas (permanece o mesmo)
+    // Sistema de avaliação por estrelas
     const stars = document.querySelectorAll('.stars .star');
     const currentRatingSpan = document.getElementById('rating-value');
     const submitRatingBtn = document.getElementById('submit-rating');
     const ratingMessage = document.getElementById('rating-message');
     let selectedRating = 0;
+
+    // Carregar avaliação do localStorage (para persistência local no navegador do usuário)
+    function loadRating() {
+        const storedRating = localStorage.getItem('ajaxFutsalRating');
+        if (storedRating) {
+            selectedRating = parseInt(storedRating);
+            currentRatingSpan.textContent = selectedRating;
+            highlightStars(selectedRating);
+            ratingMessage.textContent = `Sua última avaliação: ${selectedRating} estrelas.`;
+            ratingMessage.style.color = '#fff';
+        }
+    }
+
+    loadRating();
 
     stars.forEach(star => {
         star.addEventListener('mouseover', () => {
@@ -114,21 +129,66 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- SEÇÃO MODIFICADA PARA ENVIAR AVALIAÇÃO AO GOOGLE APPS SCRIPT ---
     submitRatingBtn.addEventListener('click', () => {
         if (selectedRating > 0) {
-            ratingMessage.textContent = `Obrigado por avaliar com ${selectedRating} estrelas!`;
-            ratingMessage.style.color = '#8cff8c'; // Verde para sucesso
-            setTimeout(() => {
-                ratingMessage.textContent = '';
-            }, 3000); // Mensagem some após 3 segundos
+            ratingMessage.textContent = `Enviando avaliação...`;
+            ratingMessage.style.color = '#fff';
+
+            // Salva a avaliação no localStorage do usuário (opcional, para feedback local)
+            localStorage.setItem('ajaxFutsalRating', selectedRating);
+
+            // Prepara os dados para enviar ao Apps Script
+            const dataToSend = new URLSearchParams();
+            dataToSend.append('rating', selectedRating);
+            // O Apps Script que te passei já tenta pegar o IP, mas se quiser passar do lado do cliente:
+            // dataToSend.append('ip_address', 'IP_AQUI_SE_TIVER'); // Pode tentar pegar de um serviço externo ou deixar em branco para o Apps Script lidar
+
+            fetch(GOOGLE_APPS_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Importante para contornar problemas de CORS com Apps Script
+                body: dataToSend,
+            })
+            .then(response => {
+                // Como usamos 'no-cors', a resposta sempre será 'opaque'.
+                // Não podemos ler o corpo da resposta aqui, mas sabemos que a requisição foi enviada.
+                console.log('Requisição de avaliação enviada. Verifique sua Planilha Google.');
+                ratingMessage.textContent = `Obrigado por avaliar com ${selectedRating} estrelas!`;
+                ratingMessage.style.color = '#8cff8c';
+            })
+            .catch(error => {
+                console.error('Erro ao enviar avaliação:', error);
+                ratingMessage.textContent = `Erro ao enviar avaliação. Tente novamente.`;
+                ratingMessage.style.color = '#ff8c8c';
+            })
+            .finally(() => {
+                setTimeout(() => {
+                    // Após 3 segundos, volta para a mensagem de última avaliação localmente armazenada
+                    const lastStoredRating = localStorage.getItem('ajaxFutsalRating');
+                    if (lastStoredRating) {
+                        ratingMessage.textContent = `Sua última avaliação: ${lastStoredRating} estrelas.`;
+                        ratingMessage.style.color = '#fff';
+                    } else {
+                        ratingMessage.textContent = ''; // Se não houver, limpa
+                    }
+                }, 3000);
+            });
+
         } else {
             ratingMessage.textContent = 'Por favor, selecione uma avaliação!';
-            ratingMessage.style.color = '#ff8c8c'; // Vermelho para erro
+            ratingMessage.style.color = '#ff8c8c';
             setTimeout(() => {
-                ratingMessage.textContent = '';
-            }, 3000); // Mensagem some após 3 segundos
+                const lastStoredRating = localStorage.getItem('ajaxFutsalRating');
+                if (lastStoredRating) {
+                    ratingMessage.textContent = `Sua última avaliação: ${lastStoredRating} estrelas.`;
+                    ratingMessage.style.color = '#fff';
+                } else {
+                    ratingMessage.textContent = '';
+                }
+            }, 3000);
         }
     });
+    // --- FIM DA SEÇÃO MODIFICADA ---
 
     function highlightStars(count) {
         stars.forEach((star, index) => {
