@@ -4,18 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Dados e elementos do site (permanecem os mesmos) ---
     const players = [
-        { name: 'Eduardo', fileName: 'Eduardo.jpg', position: 'Goleiro', number: '2' },
-        { name: 'Pedro Germano', fileName: 'Pedro Germano.jpg', position: 'Ala Esquerda', number: '7' },
-        { name: 'Geraldinho', fileName: 'Geraldinho.jpg', position: 'Ala Esquerda', number: '7' },
-        { name: 'Guilherme', fileName: 'Guilherme.jpg', position: 'Ala Direito', number: '4' },
-        { name: 'Gustavo', fileName: 'Gustavo.jpg', position: 'Ala Direito', number: '20' },
-        { name: 'Jardel', fileName: 'Jardel.jpg', position: 'Ala Direita', number: '10' },
-        { name: 'Matheus', fileName: 'Matheus.jpg', position: 'Fixo', number: '5' },
-        { name: 'Laércio Júnior', fileName: 'Laercio jr.jpg', position: 'Fixo/Ala', number: '17' },
-        { name: 'Nalderson', fileName: 'Nalderson.jpg', position: 'Ala Direito', number: '8' },
-        { name: 'Pedrinho', fileName: 'Pedrinho.jpg', position: 'Ala Direito', number: '9' },
-        { name: 'Davi', fileName: 'Davi.jpg', position: 'Ala Direito', number: '19' },
-        { name: 'Rivaldo', fileName: 'Rivaldo.jpg', position: 'Pivô', number: '6' },
+        { name: 'Eduardo', fileName: 'Eduardo.jpeg', position: 'Goleiro', number: '2' },
+        { name: 'Pedro Germano', fileName: 'Pedro Germano.jpeg', position: 'Ala Esquerda', number: '7' },
+        { name: 'Geraldinho', fileName: 'Geraldinho.jpeg', position: 'Ala Esquerda', number: '7' },
+        { name: 'Guilherme', fileName: 'Guilherme.jpeg', position: 'Ala Direito', number: '4' },
+        { name: 'Gustavo', fileName: 'Gustavo.jpeg', position: 'Ala Direito', number: '20' },
+        { name: 'Jardel', fileName: 'Jardel.jpeg', position: 'Ala Direita', number: '10' },
+        { name: 'Matheus', fileName: 'Matheus.jpeg', position: 'Fixo', number: '5' },
+        { name: 'Laércio Júnior', fileName: 'Laercio jr.jpeg', position: 'Fixo/Ala', number: '17' },
+        { name: 'Nalderson', fileName: 'Nalderson.jpeg', position: 'Ala Direito', number: '8' },
+        { name: 'Pedrinho', fileName: 'Pedrinho.jpeg', position: 'Ala Direito', number: '9' },
+        { name: 'Davi', fileName: 'Davi.jpeg', position: 'Ala Direito', number: '19' },
+        { name: 'Rivaldo', fileName: 'Rivaldo.jpeg', position: 'Pivô', number: '6' },
         // Adicione mais jogadores aqui
     ];
 
