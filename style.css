@@ -19,6 +19,14 @@ body {
     color: var(--text-light);
 }
 
+body {
+    background-image: url('background.jpg'); /* Define a imagem de fundo */
+    background-size: cover;                  /* Faz a imagem cobrir toda a área da tela */
+    background-position: center;             /* Centraliza a imagem */
+    background-attachment: fixed;            /* Mantém a imagem de fundo fixa ao rolar a página */
+    background-repeat: no-repeat;            /* Impede que a imagem se repita */
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
